@@ -1,0 +1,14 @@
+__pycache__/
+.idea/
+*.py[cod]
+.ipynb_checkpoints/
+.vscode/
+.DS_Store
+LightGBM/*
+LightGBM
+.venv
+.eggs
+*.egg-info
+tests/logs
+tests/manual_run_alex.py
+.mypy_cache/

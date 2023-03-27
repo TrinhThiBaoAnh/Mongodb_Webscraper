@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.centered-caption {
+    text-align: center;
+    margin-top: 10px; /* adjust as needed */
+  }
+table {
+  width: 100%;
+  /* margin-top: 100px; */
+  font-size: 18px;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 16px 24px;
+  text-align: left;
+}
+
+thead tr {
+  background-color: #087f5b;
+  color: #fff;
+}
+
+thead th {
+  width: 25%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Logo</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfbDKrQv3u1w7jezq0MZqp0Y2Ef9yGFWH78w&usqp=CAU" class="w3-circle w3-margin-right" style="width:46px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome!</span><br>
+      <a href="https://mail.google.com/" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="https://www.facebook.com/" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-padding"><i class="fa fa-users fa-fw"></i>Overview</a>
+    <a href="#references" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>References</a>
+    <a href="#authors" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Authors</a>
+    <a href="#published_date" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Published Date</a>
+    <a href="#articles" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Articles</a>
+    <a href="#about_us" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>About Us</a>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h1><b><i class="fa fa-dashboard"></i> My Dashboard</b></h1>
+  </header>
+  <!-- Overview -->
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{num_articles_vt}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Num of articles - Viettan.org</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{ num_author_vt }}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Num of author- Viettan.org</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{num_articles_dkn}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Num of articles - dkn.com</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{ num_author_dkn }}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Num of author- dkn.com</h4>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- References -->
+  <div class="w3-panel" id="references">
+    <h1>References</h1>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div>
+        <h5>Viettan.org</h5>
+        <iframe src="https://viettan.org/" width="100%" height="500"></iframe>
+      </div>
+      <div>
+        <h5>Dkn.tv</h5>
+        <iframe src="https://www.dkn.tv/" width="100%" height="500"></iframe>
+      </div>
+      <div>
+        <h5>Get more details in this <a href="https://github.com/TrinhThiBaoAnh"> Github</a></h5>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Published date -->
+  <div class="w3-panel" id="published_date">
+    <h1><b>Published Date</b></h1>
+    <div class="w3-row">
+        <div class="w3-half">
+            <table>
+                <caption>Table 1: DAIKYNGUYEN.TV</caption>
+                <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Number of Articles</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for month, num in dates_by_month.items() %}
+                    <tr>
+                      <th>{{ month }}:</th>
+                      <td> {{num}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody> 
+            </table>
+        </div>
+        <div class="w3-half">
+          <br>
+          <img src="{{ url_for('static', filename='dkn_line_chart.png') }}" alt="Line Chart" width="100%">
+      </div>
+   </div> 
+   <div class="w3-row">
+    <div class="w3-quarter">
+      <table>
+        <caption>Table 2:</caption>
+          <thead>
+              <tr>
+                <th>Time</th>
+                <th>Number of Articles</th>
+                
+              </tr>
+          </thead>
+          <tbody>
+              {% for month, num in dates_by_month21.items() %}
+              <tr>
+                <th>{{ month }}:</th>
+                <td> {{num}}</td>
+              </tr>
+              {% endfor %}
+          </tbody> 
+      </table>
+  </div>
+  <div class="w3-quarter">
+    <table>
+      <caption>VIETTAN.ORG</caption>
+        <thead>
+            <tr>
+              <th>Time</th>
+              <th>Number of Articles</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            {% for month, num in dates_by_month22.items() %}
+            <tr>
+              <th>{{ month }}:</th>
+              <td> {{num}}</td>
+            </tr>
+            {% endfor %}
+        </tbody> 
+    </table>
+</div>
+    <div class="w3-half">
+      <br>
+      <img src="{{ url_for('static', filename='vt_line_chart.png') }}" alt="Line Chart" width="100%">
+    </div>
+   </div>
+  </div>
+  <hr>
+  <div class="w3-panel" id="articles">
+    <h1><b>Articles</b></h1>
+    <div class="w3-row">
+      <table>
+        <caption>Table 3: Dai ky nguyen</caption>
+          <thead>
+              <tr>
+                <th>Title</th>
+                <th>Content</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for title, content in articles_dkn.items() %}
+              <tr>
+                <td> {{title}}</td>
+                <td>{{content}}</td>
+              </tr>
+              {% endfor %}
+          </tbody> 
+      </table>
+    </div>
+    <div class="w3-row">
+      <table>
+        <caption>Table 4: Viet tan</caption>
+          <thead>
+              <tr>
+                <th>Title</th>
+                <th>Content</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for title, content in articles_vt.items() %}
+              <tr>
+                <td> {{title}}</td>
+                <td>{{content}}</td>
+              </tr>
+              {% endfor %}
+          </tbody> 
+      </table>
+    </div>
+  </div>
+  <hr>
+  <!-- Authors -->
+  <div class="w3-container" id="about_us">
+    <h1><b>Authors</b></h1>
+    <div class="w3-row">
+      <figure>
+        <img src="{{ url_for('static', filename='Figure_1.png') }}" alt="Line Chart" width="100%">
+        <figcaption class="centered-caption">DAIKYNGUYEN.TV</figcaption>
+      </figure>
+    </div>
+    <br>
+    <br>
+    <div class="w3-row">
+      <figure>
+        <img src="{{ url_for('static', filename='Figure_2.png') }}" alt="Line Chart" width="100%">
+        <figcaption  class="centered-caption">Viettan.org</figcaption>
+      </figure>
+      
+     
+  </div>
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img  src="" style="width:100%;">
+      </div>
+  </div>
+  <hr>
+  <!-- About us -->
+  <div class="w3-container" id="about_us">
+    <h1>About us</h1>
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img class="w3-circle" src="https://antimatter.vn/wp-content/uploads/2022/11/hinh-anh-avatar-nam.jpg" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>Hoang Bui Huy <span class="w3-opacity w3-medium"></span></h4>
+        <p>Keep up the GREAT work! I am cheering for you!!</p><br>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img class="w3-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfbDKrQv3u1w7jezq0MZqp0Y2Ef9yGFWH78w&usqp=CAU" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>Anh Trinh Bao <span class="w3-opacity w3-medium"></span></h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-row">
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
