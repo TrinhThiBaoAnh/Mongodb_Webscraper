@@ -146,7 +146,7 @@ for item in viettan.find():
     # items.append(item)
     i = i + 1
     if (i<= 10):
-        articles_vt[item["Title"][0]] = item["Content"][:200]
+        articles_vt[item["Title"]] = item["Content"][:200]
     num_articles_vt = num_articles_vt + 1
     title = item["Title"]
     content = item["Content"]

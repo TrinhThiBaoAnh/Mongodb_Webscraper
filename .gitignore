@@ -12,3 +12,4 @@ LightGBM
 tests/logs
 tests/manual_run_alex.py
 .mypy_cache/
+result_csv/vietnamese_bert_classification/
